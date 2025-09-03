@@ -1,0 +1,16 @@
+# Mac system files
+.DS_Store
+
+# Logs
+*.log
+
+# Optional build/compiled output
+dist/
+build/
+
+# Node modules (for future use if you add npm stuff)
+node_modules/
+
+# Temp files
+*.tmp
+*.bak
