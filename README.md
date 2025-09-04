@@ -17,11 +17,16 @@ This is a simple bug-tracking web app that allows users to submit, track, and re
 ## 🚀 Live Demo
 🔗 [View the app](https://sammycrayz.github.io/bug-tracker-demo/)
 
+<pre>
 ## 📂 Folder Structure
+```
 bug-tracker-demo/
 ├── index.html
 ├── style.css
 └── script.js
+```
+</pre>
+
 
 ## ✅ Future Improvements
 - Delete/archive functionality
