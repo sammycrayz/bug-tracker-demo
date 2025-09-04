@@ -20,6 +20,7 @@ function renderBugs() {
       <button onclick="toggleBug(${index})">
         ${bug.resolved ? 'Mark Unresolved' : 'Mark Resolved'}
       </button>
+      <button onclick="deleteBug(${index})" class="delete-btn">🗑️ Delete</button>
     `;
     bugList.appendChild(li);
   });
@@ -29,6 +30,14 @@ function toggleBug(index) {
   bugs[index].resolved = !bugs[index].resolved;
   saveBugs();
   renderBugs();
+}
+
+function deleteBug(index) {
+  if (confirm("Are you sure you want to delete this bug?")) {
+    bugs.splice(index, 1);
+    saveBugs();
+    renderBugs();
+  }
 }
 
 form.addEventListener('submit', (e) => {
