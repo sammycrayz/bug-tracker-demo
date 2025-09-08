@@ -72,3 +72,24 @@ button:hover {
 .delete-btn:hover {
   background: #c82333;
 }
+
+.priority {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  color: white;
+}
+
+.priority.low {
+  background-color: #28a745;
+}
+
+.priority.medium {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.priority.high {
+  background-color: #dc3545;
+}
