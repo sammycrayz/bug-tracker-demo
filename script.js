@@ -41,12 +41,19 @@ function deleteBug(index) {
   }
 }
 
+function logDebug(message) {
+  const logBox = document.getElementById('debug-log');
+  logBox.innerHTML += `<p>${message}</p>`;
+}
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const title = titleInput.value.trim();
   const description = descInput.value.trim();
   const priority = priorityInput.value;
+
+  logDebug(`Submitted: ${title}, ${description}, ${priority}`);
 
   if (title && description && priority) {
     const newBug = {
