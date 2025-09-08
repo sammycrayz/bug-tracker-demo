@@ -43,20 +43,23 @@ function deleteBug(index) {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+
   const title = titleInput.value.trim();
   const description = descInput.value.trim();
+  const priority = priorityInput.value;
 
-  if (title && description) {
-  bugs.push({
-    title,
-    description,
-    priority: priorityInput.value,
-    resolved: false
-  });
-  saveBugs();
-  renderBugs();
-  form.reset();
-}
+  if (title && description && priority) {
+    bugs.push({
+      title,
+      description,
+      priority,
+      resolved: false
+    });
+
+    saveBugs();
+    renderBugs();
+    form.reset();
+  }
 });
 
 // Initial render
