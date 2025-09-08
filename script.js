@@ -2,6 +2,7 @@ const form = document.getElementById('bug-form');
 const titleInput = document.getElementById('bug-title');
 const descInput = document.getElementById('bug-description');
 const bugList = document.getElementById('bug-list');
+const priorityInput = document.getElementById('bug-priority');
 
 let bugs = JSON.parse(localStorage.getItem('bugs')) || [];
 
@@ -15,13 +16,13 @@ function renderBugs() {
     const li = document.createElement('li');
     li.className = `bug ${bug.resolved ? 'resolved' : ''}`;
     li.innerHTML = `
-      <h3>${bug.title}</h3>
-      <p>${bug.description}</p>
-      <button onclick="toggleBug(${index})">
-        ${bug.resolved ? 'Mark Unresolved' : 'Mark Resolved'}
-      </button>
-      <button onclick="deleteBug(${index})" class="delete-btn">🗑️ Delete</button>
-    `;
+  <h3>${bug.title} <span class="priority ${bug.priority.toLowerCase()}">${bug.priority}</span></h3>
+  <p>${bug.description}</p>
+  <button onclick="toggleBug(${index})">
+    ${bug.resolved ? 'Mark Unresolved' : 'Mark Resolved'}
+  </button>
+  <button onclick="deleteBug(${index})" class="delete-btn">🗑️ Delete</button>
+`;
     bugList.appendChild(li);
   });
 }
@@ -46,11 +47,16 @@ form.addEventListener('submit', (e) => {
   const description = descInput.value.trim();
 
   if (title && description) {
-    bugs.push({ title, description, resolved: false });
-    saveBugs();
-    renderBugs();
-    form.reset();
-  }
+  bugs.push({
+    title,
+    description,
+    priority: priorityInput.value,
+    resolved: false
+  });
+  saveBugs();
+  renderBugs();
+  form.reset();
+}
 });
 
 // Initial render
