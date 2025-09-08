@@ -49,15 +49,20 @@ form.addEventListener('submit', (e) => {
   const priority = priorityInput.value;
 
   if (title && description && priority) {
-    bugs.push({
+    const newBug = {
       title,
       description,
       priority,
       resolved: false
-    });
+    };
 
+console.log("✅ Adding bug:", { title, description, priority });
+    
+    bugs.push(newBug);
     saveBugs();
     renderBugs();
+
+    // Only reset after everything has been used
     form.reset();
   }
 });
