@@ -10,11 +10,19 @@
   <div class="container">
     <h1>🐞 Bug Tracker</h1>
 
-    <form id="bug-form">
-      <input type="text" id="bug-title" placeholder="Bug Title" required />
-      <textarea id="bug-description" placeholder="Bug Description" required></textarea>
-      <button type="submit">Add Bug</button>
-    </form>
+<form id="bug-form">
+  <input type="text" id="bug-title" placeholder="Bug Title" required />
+  <textarea id="bug-description" placeholder="Bug Description" required></textarea>
+
+  <label for="bug-priority">Priority:</label>
+  <select id="bug-priority" required>
+    <option value="Low">🟢 Low</option>
+    <option value="Medium">🟡 Medium</option>
+    <option value="High">🔴 High</option>
+  </select>
+
+  <button type="submit">Add Bug</button>
+</form>
 
     <ul id="bug-list"></ul>
   </div>
